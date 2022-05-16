@@ -32,7 +32,7 @@ public class ScreenA extends BaseScreen {
 
 	@Override
 	public void paint() {
-		gc.setFill(Color.GREY);
+		gc.setFill(Color.BLACK);
 		gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
 		avatar.paint();
