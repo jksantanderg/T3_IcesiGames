@@ -42,16 +42,18 @@ public class ScreenA extends BaseScreen {
 
 			if (bullets.get(i).getY() > canvas.getHeight()) {
 				bullets.remove(i);
-				i--;
+				i--;				
 			}
 		}
 		for (int i = 0; i < boxes.size(); i++) {
 			boxes.get(i).paint();
+			
 		}
 		
 		calculateDistance();
-		wonGame();
+		
 		endGame();
+		
 		
 	}
 	
@@ -73,6 +75,7 @@ public class ScreenA extends BaseScreen {
 				if(D <= 20) {
 					boxes.remove(i);
 					bullets.remove(j);
+					wonGame();
 					return;
 				}		
 			}
@@ -103,6 +106,7 @@ public class ScreenA extends BaseScreen {
 	public void wonGame() {
 		if(boxes.size() ==0) {
 			System.out.println("FELICIDADES");
+			return;
 		}
 	}
 
