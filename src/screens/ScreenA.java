@@ -50,6 +50,9 @@ public class ScreenA extends BaseScreen {
 		}
 		
 		calculateDistance();
+		wonGame();
+		endGame();
+		
 	}
 	
 	
@@ -73,6 +76,33 @@ public class ScreenA extends BaseScreen {
 					return;
 				}		
 			}
+		}
+	}
+	
+	public void endGame() {
+		for (int i = 0; i < boxes.size(); i++) {
+			//Comparar 
+			Box b = boxes.get(i);
+			//Avatar a = avatar.get();
+			
+			double D = Math.sqrt( 
+					Math.pow(b.getX()-avatar.getX(), 2) + 
+					Math.pow(b.getY()-avatar.getY(), 2) 
+			);
+			
+			if(D <= 50) {
+				boxes.remove(i);
+				//Eliminar nave
+				System.out.println("THE END");
+				return;
+			}		
+		}
+		
+	}
+	
+	public void wonGame() {
+		if(boxes.size() ==0) {
+			System.out.println("FELICIDADES");
 		}
 	}
 

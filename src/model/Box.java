@@ -3,11 +3,9 @@ package model;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 public class Box {
 	
@@ -16,6 +14,7 @@ public class Box {
 	
 	private int x ;
 	private int y ;
+	private int speed;
 	private Image image;
 	
 	public Box(Canvas canvas, int x, int y) {
@@ -34,10 +33,12 @@ public class Box {
 		
 		this.x = x;
 		this.y = y;
+		this.speed=1;
 	}
 
 	public void paint() {
 		gc.drawImage(image, x, y);
+		y+=speed;
 	}
 
 	public int getX() {
@@ -55,7 +56,4 @@ public class Box {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
-	
 }
