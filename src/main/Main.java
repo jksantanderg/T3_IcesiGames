@@ -9,22 +9,31 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import screens.ScreenA;
 
-public class Main extends Application{
-	static Scanner  sc = new Scanner (System.in);
+/**
+ * This is the main class of the program. This program will emulate the video
+ * game "SpaceInvaders", the user will be able to interact with the visual
+ * interface of this game.
+ * 
+ * @author Yessica Santander
+ * @author Gabriel Restrepo
+ * @author Camilo Gonzalez
+ */
+public class Main extends Application {
+	static Scanner sc = new Scanner(System.in);
 	public static ScreenA screenA;
+
+	/**
+	 * This is the main class of the program, it will ask the user for the number of
+	 * enemies that the program will generate.
+	 */
 	public static void main(String[] args) {
-		
-		System.out.println("Enter the number of enemies");
-		int n = sc.nextInt ();
-		
-		create(n);
-		
+
 		launch(args);
 	}
-	public static void create(int n) {
-		
-	}
 
+	/**
+	 * This method initializes the main window of the video game
+	 */
 	@Override
 	public void start(Stage arg0) throws Exception {
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("../view/MainWindow.fxml"));
