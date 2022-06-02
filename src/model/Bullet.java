@@ -45,7 +45,7 @@ public class Bullet {
 	 * This method paints the bullet on the screen
 	 */
 	public void paint() {
-		gc.setFill(Color.AQUAMARINE);
+		gc.setFill(Color.AQUA);
 		gc.fillOval(x, y, sizeX, sizeY);
 		y -= speed;
 	}

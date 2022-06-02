@@ -33,7 +33,7 @@ public class ScreenA extends BaseScreen {
 	private Avatar avatar;
 	private ArrayList<Bullet> bullets;
 	private ArrayList<Box> boxes;
-	private static final int enemiesQuant = 5; // The limit is 10 enemies 
+	private static final int enemiesQuant = 3; // The limit is 10 enemies 
 	
 	/**
 	 * This is the constructor method of the ScreenA
@@ -116,8 +116,13 @@ public class ScreenA extends BaseScreen {
 				double d = Math.sqrt(Math.pow(b.getX() - p.getX(), 2) + Math.pow(b.getY() - p.getY(), 2));
 
 				if (d <= 60) {
+					
+					if(boxes.get(i).getImageID().equals("src/image/enemy.png")) {
+						avatar.setScore(avatar.getScore()+2);
+					}else {
+						avatar.setScore(avatar.getScore()+1);	
+					}
 					boxes.remove(i);
-					avatar.setScore(avatar.getScore()+1);
 					bullets.remove(j);
 					wonGame();
 					return;
@@ -188,7 +193,7 @@ public class ScreenA extends BaseScreen {
 		if (e.getCode().equals(KeyCode.SPACE)) {
 			
 			if(bullets.size() <= maxBulletsInScreen) {
-				bullets.add(new Bullet(canvas, avatar.getX() + 35, avatar.getY()));
+				bullets.add(new Bullet(canvas,-3 + avatar.getX() + (int)avatar.getImage().getHeight()/2, avatar.getY()));
 			}
 		}
 

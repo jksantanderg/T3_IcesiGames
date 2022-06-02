@@ -26,6 +26,8 @@ public class Box {
 	private double speed; // this is the number of pixels that the enemy travels by every time it is moved
 							// to some direction
 	private Image image; // this is the image of the enemy
+	
+	private String imageID;//this is the id of the image
 
 	/**
 	 * This is the constructor method of the enemy.
@@ -39,8 +41,19 @@ public class Box {
 	public Box(Canvas canvas, int x, int y) {
 		this.canvas = canvas;
 		gc = canvas.getGraphicsContext2D();
+		double i = Math.random();
 
-		File file = new File("src/image/enemy.png");
+		File file = null;
+		
+		
+		if(i>0.5) {
+			imageID = ("src/image/enemy.png");
+		}else {
+			imageID = ("src/image/enemigo.png");
+		}
+		
+		file = new File(imageID);
+		
 		try {
 			image = new Image(new FileInputStream(file));
 		} catch (FileNotFoundException e) {
@@ -50,7 +63,7 @@ public class Box {
 
 		this.x = x;
 		this.y = y;
-		this.speed = 1;
+		this.speed = 0.5;
 	}
 
 	/**
@@ -115,6 +128,14 @@ public class Box {
 	 */
 	public void setImage(Image image) {
 		this.image = image;
+	}
+
+	public String getImageID() {
+		return imageID;
+	}
+
+	public void setImageID(String imageID) {
+		this.imageID = imageID;
 	}
 
 }

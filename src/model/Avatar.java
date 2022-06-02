@@ -22,11 +22,20 @@ public class Avatar {
 	private GraphicsContext gc; // Graphic context attribute
 
 	private int x = 250; // this is the coordinate of the x axis of the enemy on the screen
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
 	private int y = 300; // this is the coordinate of the y axis of the enemy on the screen
 	private Image image; // this is the image of the avatar
 
 	private int score; // this will be the accumulated score of the avatar
 
+	private String imageID;//this is the id of the image
 	/**
 	 * This is the constructor method of the avatar class
 	 * 
@@ -36,7 +45,17 @@ public class Avatar {
 		this.canvas = canvas;
 		gc = canvas.getGraphicsContext2D();
 
-		File file = new File("src/image/Nave.png");
+		double i = Math.random();
+
+		File file = null;
+		
+		if(i>0.5) {
+			imageID = ("src/image/Nave.png");
+		}else {
+			imageID = ("src/image/nave2.png");
+		}
+		
+		file = new File(imageID);
 		try {
 			image = new Image(new FileInputStream(file));
 		} catch (FileNotFoundException e) {
@@ -111,6 +130,14 @@ public class Avatar {
 	 */
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public String getImageID() {
+		return imageID;
+	}
+
+	public void setImageID(String imageID) {
+		this.imageID = imageID;
 	}
 
 }

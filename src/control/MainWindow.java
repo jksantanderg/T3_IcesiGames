@@ -53,7 +53,7 @@ public class MainWindow implements Initializable {
 					paint();
 
 				});
-				pause(50);
+				pause(30);
 				FRAMES++;
 				if (winGame) {
 					System.out.println("You Win!");
